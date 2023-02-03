@@ -1,0 +1,10 @@
+@nilmod {
+	name: "221E";
+	description: "A proof of concept dynamic code assembly engine.";
+	authors: "SilverAndro";
+	version: "${version}";
+}
+
+entrypoints {
+	premain: "io.github.silverandro._221e.impl._221EMain";
+}

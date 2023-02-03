@@ -1,0 +1,63 @@
+plugins {
+	id 'java'
+	id 'com.unascribed.nilgradle' version '1.4.0'
+}
+
+// You can change this to be higher if you like. NilLoader itself is compiled
+// for Java 8 for compatibility with older versions.
+sourceCompatibility = 8
+targetCompatibility = 8
+
+group = 'io.github.silverandro._221e'
+archivesBaseName = '221E'
+version = '0.0.0'
+
+repositories {
+	mavenCentral()
+	maven {
+		// NilLoader and NilGradle are published here
+		url 'https://repo.sleeping.town'
+		content {
+			includeGroup 'com.unascribed'
+		}
+	}
+	maven {
+		// If you wish to use Yarn or Intermediary
+		url 'https://maven.fabricmc.net'
+		content {
+			includeGroup 'net.fabricmc'
+		}
+	}
+	maven {
+		// If you wish to use mcp_config or compile against Minecraft Forge
+		url 'https://maven.minecraftforge.net'
+		content {
+			includeGroup 'net.minecraftforge'
+			includeGroup 'de.oceanlabs.mcp'
+		}
+	}
+}
+
+nil {
+	id "_221e"
+	// Set this to false for a smaller JAR that can't be run as a standalone Java agent
+	standalone true
+}
+
+dependencies {
+	loader 'com.unascribed:nilloader:1.2.2'
+	game nil.minecraft('1.18.2', 'client')
+
+	implementation("com.unascribed:flexver-java:1.1.0")
+
+	testImplementation 'org.junit.jupiter:junit-jupiter-api:5.3.1'
+	testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.3.1'
+}
+
+mappings {
+	work nil.mojmap('1.18.2', 'client')
+}
+
+test {
+	useJUnitPlatform()
+}
