@@ -45,7 +45,7 @@ nil {
 
 dependencies {
 	loader 'com.unascribed:nilloader:1.3.1'
-	game nil.minecraft('1.18.2', 'client')
+	game nil.minecraft('1.16.5', 'client')
 
 	implementation("com.unascribed:flexver-java:1.1.0")
 
@@ -54,7 +54,7 @@ dependencies {
 }
 
 mappings {
-	work nil.mojmap('1.18.2', 'client')
+	work nil.mojmap('1.16.5', 'client')
 }
 
 test {
