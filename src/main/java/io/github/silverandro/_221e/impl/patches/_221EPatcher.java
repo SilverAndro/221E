@@ -1,20 +1,12 @@
 package io.github.silverandro._221e.impl.patches;
 
-import nilloader.api.ClassTransformer;
-import nilloader.api.lib.asm.ClassReader;
+import nilloader.api.ASMTransformer;
 import nilloader.api.lib.asm.Opcodes;
 import nilloader.api.lib.asm.tree.ClassNode;
 
-public class _221EPatcher implements ClassTransformer {
+public class _221EPatcher implements ASMTransformer {
 	@Override
-	public byte[] transform(String className, byte[] originalData) {
-		if (className.startsWith("java")) return originalData;
-
-		ClassReader reader = new ClassReader(originalData);
-
-		ClassNode node = new ClassNode();
-		reader.accept(node, ClassReader.SKIP_DEBUG);
-
+	public boolean transform(ClassLoader classLoader, ClassNode node) {
 		node.methods.forEach(methodNode -> {
 			methodNode.instructions.forEach(abstractInsnNode -> {
 				if (abstractInsnNode.getOpcode() == Opcodes.INVOKESTATIC) {
@@ -23,6 +15,11 @@ public class _221EPatcher implements ClassTransformer {
 			});
 		});
 
-		return new byte[0];
+		return false;
+	}
+
+	@Override
+	public boolean canTransform(ClassLoader loader, String className) {
+		return !className.startsWith("java");
 	}
 }
