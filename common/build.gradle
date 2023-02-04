@@ -1,0 +1,28 @@
+plugins {
+    id 'java'
+}
+
+group 'io.github.silverandro._221e'
+version '0.0.0'
+
+repositories {
+    mavenCentral()
+    maven {
+        // NilLoader and NilGradle are published here
+        url 'https://repo.sleeping.town'
+        content {
+            includeGroup 'com.unascribed'
+        }
+    }
+}
+
+dependencies {
+    implementation("com.unascribed:flexver-java:1.1.0")
+
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+}
+
+test {
+    useJUnitPlatform()
+}

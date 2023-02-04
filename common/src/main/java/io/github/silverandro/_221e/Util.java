@@ -1,7 +1,7 @@
-package io.github.silverandro._221e.impl;
+package io.github.silverandro._221e;
 
-public class _221EUtil {
-    private _221EUtil() {
+public class Util {
+    private Util() {
         noImpl();
     }
 

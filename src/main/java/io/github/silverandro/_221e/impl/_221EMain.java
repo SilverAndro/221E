@@ -1,6 +1,6 @@
 package io.github.silverandro._221e.impl;
 
-import io.github.silverandro._221e.impl.patches._221EGetVersionQuilt;
+import io.github.silverandro._221e.impl.patches.QuiltEnvLoader;
 import io.github.silverandro._221e.impl.patches._221EPatcher;
 import nilloader.api.ClassTransformer;
 import nilloader.api.ModRemapper;
@@ -15,6 +15,6 @@ public class _221EMain implements Runnable {
 		log.info("221E is live!");
 		ModRemapper.setTargetMapping(null);
 		ClassTransformer.register(new _221EPatcher());
-		ClassTransformer.register(new _221EGetVersionQuilt());
+		ClassTransformer.register(new QuiltEnvLoader());
 	}
 }

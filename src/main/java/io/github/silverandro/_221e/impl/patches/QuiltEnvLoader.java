@@ -10,7 +10,7 @@ import nilloader.api.lib.mini.PatchContext;
 import nilloader.api.lib.mini.annotation.Patch;
 
 @Patch.Class("org.quiltmc.loader.impl.game.minecraft.MinecraftGameProvider")
-public class _221EGetVersionQuilt extends MiniTransformer {
+public class QuiltEnvLoader extends MiniTransformer {
     @Patch.Method("locateGame(Lorg.quiltmc.loader.impl.launch.common.QuiltLauncher;[Ljava.lang.String;)Z")
     public void exfilGameVersion(PatchContext ctx) {
         ctx.jumpToLastReturn();

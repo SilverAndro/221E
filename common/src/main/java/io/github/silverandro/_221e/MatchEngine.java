@@ -1,4 +1,4 @@
-package io.github.silverandro._221e.impl;
+package io.github.silverandro._221e;
 
 import com.unascribed.flexver.FlexVerComparator;
 
@@ -6,8 +6,24 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class _221EMatchEngine {
-    public static Map<String, String> matchMap = new HashMap<>();
+public class MatchEngine {
+    private MatchEngine() {
+        Util.noImpl();
+    }
+
+    private static final Map<String, String> matchMap = new HashMap<>();
+
+    public static void deleteAll() {
+        matchMap.clear();
+    }
+
+    public static void register(String key, String value) {
+        if (matchMap.containsKey(key)) {
+            Util.badArg("Attempted to redefine " + key + " from " + matchMap.get(key) + " to " + value);
+        } else {
+            matchMap.put(key, value);
+        }
+    }
 
     public static boolean isMatch(String matchString) {
         ArrayList<MatchEntry> stack = new ArrayList<>();
