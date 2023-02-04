@@ -1,6 +1,7 @@
 plugins {
 	id 'java'
 	id 'com.unascribed.nilgradle' version '1.4.0'
+	id 'maven-publish'
 }
 
 // You can change this to be higher if you like. NilLoader itself is compiled
@@ -8,7 +9,7 @@ plugins {
 sourceCompatibility = 8
 targetCompatibility = 8
 
-group = 'io.github.silverandro._221e'
+group = 'io.github.silverandro'
 archivesBaseName = '221E'
 version = '0.0.0'
 
@@ -85,12 +86,23 @@ tasks.register("fixNilGradle") {
 }
 nilSetup.finalizedBy(fixNilGradle)
 
-tasks.register("launch") {
+tasks.register("distribute") {
 	dependsOn(build)
+	dependsOn(publishToMavenLocal)
 	doLast {
 		copy {
 			from buildDir.absolutePath + "/libs/"
 			into "C:/Users/SilverAndro/AppData/Roaming/PrismLauncher/instances/1.19.3/.minecraft/"
+		}
+	}
+}
+
+publishing {
+	publications {
+		//noinspection GroovyAssignabilityCheck
+		fatJar(MavenPublication) {
+			//noinspection GroovyAssignabilityCheck
+			artifact(file(buildDir.absolutePath + "/libs/221E-${version}.jar"))
 		}
 	}
 }

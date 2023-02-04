@@ -19,7 +19,7 @@ public class QuiltEnvLoader extends MiniTransformer {
                 new LdcInsnNode("loader"),
                 new LdcInsnNode("quilt"),
                 new MethodInsnNode(Opcodes.INVOKESTATIC,
-                        "io/github/silverandro/_221e/api/_221E",
+                        "io/github/silverandro/_221e/_221E",
                         "registerMatchEngineParam",
                         "(Ljava/lang/String;Ljava/lang/String;)V"
                 ),
@@ -49,7 +49,7 @@ public class QuiltEnvLoader extends MiniTransformer {
                         "()Ljava/lang/String;"
                 ),
                 new MethodInsnNode(Opcodes.INVOKESTATIC,
-                        "io/github/silverandro/_221e/api/_221E",
+                        "io/github/silverandro/_221e/_221E",
                         "registerMatchEngineParam",
                         "(Ljava/lang/String;Ljava/lang/String;)V"
                 ),

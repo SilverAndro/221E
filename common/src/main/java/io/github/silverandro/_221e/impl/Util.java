@@ -12,4 +12,12 @@ public class Util {
     public static void badArg(String msg) {
         throw new IllegalArgumentException(msg);
     }
+
+    public static void tooComplex(String msg) {
+        throw new IllegalStateException("Too complex: " + msg);
+    }
+
+    public static void badFormat(String msg) {
+        throw new IllegalStateException("Bad format: " + msg);
+    }
 }
