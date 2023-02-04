@@ -1,7 +1,7 @@
-package io.github.silverandro._221e.impl;
+package io.github.silverandro._221e.nil;
 
-import io.github.silverandro._221e.impl.patches.QuiltEnvLoader;
-import io.github.silverandro._221e.impl.patches._221EPatcher;
+import io.github.silverandro._221e.nil.patches.QuiltEnvLoader;
+import io.github.silverandro._221e.nil.patches._221EPatcher;
 import nilloader.api.ClassTransformer;
 import nilloader.api.ModRemapper;
 import nilloader.api.NilLogger;

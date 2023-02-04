@@ -1,4 +1,4 @@
-package io.github.silverandro._221e.impl.patches;
+package io.github.silverandro._221e.nil.patches;
 
 import nilloader.api.lib.asm.Opcodes;
 import nilloader.api.lib.asm.tree.FieldInsnNode;
@@ -24,7 +24,7 @@ public class QuiltEnvLoader extends MiniTransformer {
                         "(Ljava/lang/String;Ljava/lang/String;)V"
                 ),
                 new FieldInsnNode(Opcodes.GETSTATIC,
-                        "io/github/silverandro/_221e/impl/_221EMain",
+                        "io/github/silverandro/_221e/nil/_221EMain",
                         "log",
                         "Lnilloader/api/NilLogger;"
                 ),
@@ -56,7 +56,7 @@ public class QuiltEnvLoader extends MiniTransformer {
 
                 // Log
                 new FieldInsnNode(Opcodes.GETSTATIC,
-                        "io/github/silverandro/_221e/impl/_221EMain",
+                        "io/github/silverandro/_221e/nil/_221EMain",
                         "log",
                         "Lnilloader/api/NilLogger;"
                 ),

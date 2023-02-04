@@ -6,5 +6,5 @@
 }
 
 entrypoints {
-	premain: "io.github.silverandro._221e.impl._221EMain";
+	premain: "io.github.silverandro._221e.nil._221EMain";
 }
